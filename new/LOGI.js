@@ -57,8 +57,8 @@ console.log(new_result_2); // 1 && 0 -> 0 (the first falsy value) and the false 
 console.log("+++++++++++---------------++++++++++++++-----------------------++++++++++++++++++++++++++++++++++-----------")
 // ! this converts the truth to false and vice versa
 /// AND operator (&&) has a higher precedence than OR operator (||)
-console(!!1); // false to true those like the value changes
-console(!!0); // true to false those like the value changes
+console.log(!!1); // false to true those like the value changes
+console.log(!!0); // true to false those like the value changes
 
 /* ==> ?? (nullish coalescing operator)
 *it treats null and undefined as the only falsy values
@@ -70,9 +70,92 @@ console(!!0); // true to false those like the value changes
 * ?? returns the first argument if it's not null/undefined
 * let b = 0 , a;
 * let result = a ?? b;
-* result will be 0 because a is undefined but b is defined
+* result will be 0    because a is undefined but b is defined
+*javascript stopped using ?? together with && and ||
+*
+*?? returns the first defined value
+*|| return the first truthy value and also last falsy value
+*&& return the first falsy value and also last truthy value
+* || this can be used same way as ?? , to find the defined value
 * */
 
 let a = undefined;
 // a is actually undefined but it is defined  and it is
 let b = null
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+//let new_result_ = 1 && 2 ?? 3; // it will give an error
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
+let result = 1 ?? 2;
+console.log(result); // 1 (the first defined value)\
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+let result_ = null ?? null
+console.log(result_); // null (all values are null/undefined, returns the last value)
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+let result_4 = null ?? 2 ?? 3;
+console.log(result_4); // 2 (the first defined value)
+
+
+/*
+* you have a login page and where you have are actually trying to take the
+* values of fistName,middleName, lastName
+*
+*
+*
+* */
+let firstName = null;
+let middleName = undefined;
+let lastName = "Smith";
+if(firstName ?? middleName ?? lastName) {
+    console.log("You have entered the required values");
+}else{
+    console.log("Please enter the values");
+}
+
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=--=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=")
+// LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPS
+///                            /--> False --> body outside the loop
+// Initialization --> Condition
+///                            \--> True --> Body --> Increment/Decrement --> Condition
+
+
+let i = 0; // initialization the variable
+while(i<5){ // condition checking
+    console.log(`the i value is : ${i}`); // body of the loop
+    i++;
+} // incrementing the variable
+console.log("you are out of the loop now")
+// we want only to run the loop limited number of times not infinite times
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=--=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=")
+
+for(let j = 0; j<5; j++){
+    console.log(`the j value is : ${j}`);
+}
+// initialization actually happens only once which when the loop is getting started
+// condition is checked before every iteration of the loop
+// increment/decrement happens after every iteration of the loop
+// the body of the loop is executed only when the condition is true
+// if the condition is false the loop stops and control goes to the next line after the loop
+console.log("you are out of the loop now")
+
+
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=--=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=")
+/*BREAK
+* continue
+* if the iteration is 2 then skip it and continue with the next iteration
+* */
+
+for (let k =0; k<=5;k++){
+    if(k == 2){
+        continue
+    }
+    console.log(`the k value is : ${k}`);
+}
+console.log("=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=--=-=-=--=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=")
+
+for(let m =0; m<=8;m++){
+    if (m == 2){
+        break
+    }
+    console.log(`the m value is : ${m}`);
+}
