@@ -84,4 +84,60 @@ for(let i in user8){
 user8.salary = 1500000;
 console.log(user8);
 
+let user9 ={
+    name : "john",
+}
 
+let admin_5 = user9;
+admin_5.name = "peter";
+console.log(user9.name); // peter
+//=====================
+let aa = {};
+let bb = aa;
+console.log(a == b , a === b); // true true
+//=====================
+let c = {};
+let d = {};
+console.log(c == d , c === d); // false false
+// here both are referring to different objects in the memory
+
+let user4 = {
+    name:"leo",
+    age:30,
+}
+let clone = {}; // empty object
+
+for(let key in user4){
+    clone[key] = user4[key];
+}
+console.log(clone); // { name: 'leo', age: 30 }
+clone.name = "messi";
+console.log(user4.name); // leo
+// we have created a hard copy of user4 object into clone object
+
+//// the shallow copy and the hard copy (DEEP COPY)
+const person = {
+    name: "Komal",
+    skills: ["HTML", "CSS", "JavaScript"]
+};
+
+const shallowCopy = { ...person };
+
+// Changing nested data
+shallowCopy.skills.push("React");
+
+console.log(person.skills);       // ["HTML", "CSS", "JavaScript", "React"]
+console.log(shallowCopy.skills);  // ["HTML", "CSS", "JavaScript", "React"]
+console.log("A shallow copy copies only the top-level properties — if there are nested objects or arrays, they still reference the same memory")
+
+console.log("-----------------------------------");
+
+const deepCopy = JSON.parse(JSON.stringify(person));
+
+// Changing nested data
+deepCopy.skills.push("React");
+
+console.log(person.skills);   // ["HTML", "CSS", "JavaScript"]
+console.log(deepCopy.skills); // ["HTML", "CSS", "JavaScript", "React"]
+
+console.log("A deep copy creates a completely new object, including all nested data — they don’t share memory.");
