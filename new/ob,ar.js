@@ -94,7 +94,7 @@ console.log(user9.name); // peter
 //=====================
 let aa = {};
 let bb = aa;
-console.log(a == b , a === b); // true true
+// console.log(a == b , a === b); // true true
 //=====================
 let c = {};
 let d = {};
@@ -141,3 +141,84 @@ console.log(person.skills);   // ["HTML", "CSS", "JavaScript"]
 console.log(deepCopy.skills); // ["HTML", "CSS", "JavaScript", "React"]
 
 console.log("A deep copy creates a completely new object, including all nested data — they don’t share memory.");
+/// ============================    =========================== =========== = ================================
+
+let user45 = {
+    name : "John",
+    age:30,
+}
+user45.sayHi = function(){ // here we are defining a method inside the object
+    console.log("Hello");
+}
+console.log(user45);
+user45.sayHi(); // calling the method
+console.log(user.prototype); // undefined , as user is not a constructor function
+// but every function in JS has a prototype property
+
+let user88 = {
+    name:"John",
+    age:43,
+    sayHi:function(){
+        console.log(`${user88.name} is the owner of this car`);
+        console.log(`${this.name} is the owner of this car`);
+
+    }
+}
+
+///===================================================
+user88.sayHi(); // John is the owner of this car
+user88.sayHi(); // John is the owner of this car
+// this keyword refers to the object that is calling the method
+ /*
+ *  the THIS keyword can be used in any functions , even
+ * if it is not method of an object   in the JS is unbound
+ *  ----- the this follows to the nearer object
+ * */
+
+function  add(name) {
+    console.log(`${this.name} is the owner of this bike`);
+
+}
+add(); // undefined is the owner of this bike
+//=---------------------------------------------------------------------------------------------------------------------------------)
+///ARRAYS
+// we can define the array in the two ways like the
+// constructor function and the array literal syntax
+//let arr = new Array();
+let arr = ["Array",32,false,"banana"];
+//they are objects but they also called as the special objects
+console.log(arr.length); // 4
+console.log(arr[0]); // Array indexing which means accessing
+arr[3] = "my name is snvskomal"
+console.log(arr); // [ 'Array', 32, false, 'my name is snvskomal' ]
+console.log(arr[-1]); // undefined
+console.log(log(arr.at(-1))); // my name is snvskomal
+console.log(arr[arr.length -1]); // my name is snvskomal
+// use the AT operator to access the elements faster
+// pop // push // shift // unshift
+// DS queue is one of the most common uses of an array
+/*
+*
+* PUSH ==> appends an element to the end of the array
+* POP ==> removes the last element from the array
+* SHIFT ==> removes the first element from the array
+* UNSHIFT ==> adds an element to the beginning of the array
+*
+* */
+console.log(arr.push(-23));
+console.log(arr); // [ 'Array', 32, false, 'my name is snvskomal', -23 ]
+console.log(arr.pop());
+console.log(arr); // [ 'Array', 32, false, 'my name is snvskomal' ]
+console.log(" PUSH and POP work at the end")
+console.log("-------------------------------------------------------------------------------------------")
+
+console.log(" SHIFT  and UNSHIFT  work at the START at the start of the array  ")
+console.log(" the push and the unshift can add the multiple elements at once ")
+console.log("while Performance PUSH and POP are faster than SHIFT and UNSHIFT and  THE UNSHIFT AND SHIFT  is the slowest ")
+console.log(" DON't compare with the == ")
+console.log(arr.shift());
+console.log(arr); // [ 32, false, 'my name is snvskomal' ]
+console.log(arr.unshift("hello"));
+console.log(arr); // [ 'hello', 32, false, 'my name is snvskomal' ]
+//Slice and the Splice AND  concact forEach and indexof and find, filter , map , reduce
+// sort and reverse , reduce , split and join
