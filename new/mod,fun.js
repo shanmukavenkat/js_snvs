@@ -84,9 +84,34 @@ console.log(window.innerWidth); // width of the window
 *    location.href = "https://www.google.com";
 *    }
 * alert and conform and prompt are part of BOM  as these are browser related method
-* 
+* conform => shows the dialog with ok and cancel button
+*  to get the data from the user we use the prompt method
+* we use the conform method to get the confirmation from the user
 *
 * */
 
 
+console.log("DOM TREE")
 
+/*
+*
+* it is a backbone of HTML Document is tags
+* ACC to DOM , every HTML tag is an object .
+* everything that is present on the screen itself is js object
+* everything that will be rendered on to the screen itself is js object
+* we can apply the object methods and also array methods onto HTML
+*
+* DOM represents HTML as a tree structure of tags
+* ---- EVERY tree node is an object, Tags are element nodes ,
+* HTML is root  HEAD and BODY are child nodes of HTML element itself
+* ALL operations on DOM start with document object as it
+* is entry point to the page to the DOM
+*document ==> document.head/document.body
+* document.documentElement ==> document.html
+* 
+* */
+
+
+
+document.body.style.background = "green";
+// the style.background is used to change the background color of the web page
